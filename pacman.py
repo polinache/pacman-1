@@ -46,7 +46,7 @@ class GameObject(pygame.sprite.Sprite):
 
 class Ghost(GameObject):
         def __init__(self, x, y, tile_size, map_size):
-                GameObject.__init__(self, './resources/ghost.bmp', x, y, tile_size, map_size)
+                GameObject.__init__(self, './resources/ghost.png', x, y, tile_size, map_size)
                 self.direction = 0                # 0 - неподвижно, 1 - вправо, 2 = вниз, 3 - влево, 4 - вверх
                 self.velocity = 1       # Скорость в клетках / игровой тик
 
@@ -80,7 +80,7 @@ class Ghost(GameObject):
 
 class Pacman(GameObject):
     def __init__(self, x, y, tile_size, map_size):
-        GameObject.__init__(self, './resources/pacman.bmp', x, y, tile_size, map_size)
+        GameObject.__init__(self, './resources/pacman.png', x, y, tile_size, map_size)
         self.direction = 0
         self.velocity = 1
         self.bonus = 0
