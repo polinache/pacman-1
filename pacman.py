@@ -7,7 +7,7 @@ import random
 
 def init_window():
         pygame.init()
-        pygame.display.set_mode((1024, 1024))
+        pygame.display.set_mode((512, 512))
         pygame.display.set_caption('Packman')
 
 
@@ -46,7 +46,7 @@ class GameObject(pygame.sprite.Sprite):
 
 class Ghost(GameObject):
         def __init__(self, x, y, tile_size, map_size):
-                GameObject.__init__(self, './resources/ghost.bmp', x, y, tile_size, map_size)
+                GameObject.__init__(self, './resources/ghost.png', x, y, tile_size, map_size)
                 self.direction = 0                # 0 - неподвижно, 1 - вправо, 2 = вниз, 3 - влево, 4 - вверх
                 self.velocity = 1       # Скорость в клетках / игровой тик
 
@@ -80,7 +80,7 @@ class Ghost(GameObject):
 
 class Pacman(GameObject):
     def __init__(self, x, y, tile_size, map_size):
-        GameObject.__init__(self, './resources/pacman.bmp', x, y, tile_size, map_size)
+        GameObject.__init__(self, './resources/pacman.png', x, y, tile_size, map_size)
         self.direction = 0
         self.velocity = 1
         self.bonus = 0
@@ -167,7 +167,7 @@ class Map:
 
 class Wall(GameObject):
     def __init__(self, x, y, tile_size, map_size):
-        GameObject.__init__(self, './resources/wall.bmp', x, y, tile_size, map_size)
+        GameObject.__init__(self, './resources/wall.png', x, y, tile_size, map_size)
 
 """
 def process_events(events):
@@ -179,7 +179,7 @@ def process_events(events):
 if __name__ == '__main__':
         init_window()
         tile_size = 32
-        map_size = 32
+        map_size = 16
         pacman = Pacman(1, 1, tile_size, map_size)
         map_file = open('map.txt', 'r')
         food_file = open('food.txt', 'r')
@@ -197,7 +197,7 @@ if __name__ == '__main__':
         for i in range(len(B)):
             B[i] = list(map(int, B[i].split()))
             food.append(Food(B[i][0], B[i][1], tile_size, map_size))
-        background = pygame.image.load("./resources/background.bmp")
+        background = pygame.image.load("./resources/background.png")
         screen = pygame.display.get_surface()
 
         while 1:
